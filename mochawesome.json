@@ -2,14 +2,14 @@
   "stats": {
     "suites": 1,
     "tests": 2,
-    "passes": 1,
+    "passes": 2,
     "pending": 0,
-    "failures": 1,
-    "start": "2024-01-24T02:55:02.932Z",
-    "end": "2024-01-24T02:55:36.535Z",
-    "duration": 33603,
+    "failures": 0,
+    "start": "2024-01-24T02:57:20.041Z",
+    "end": "2024-01-24T02:58:03.433Z",
+    "duration": 43392,
     "testsRegistered": 2,
-    "passPercent": 50,
+    "passPercent": 100,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "76ea2c45-9568-47f9-b6de-514bb1bbd375",
+      "uuid": "14ed905b-c2cb-4b6f-bb62-4fec748bc139",
       "title": "",
       "fullFile": "cypress/integration/cadastro.spec.js",
       "file": "cypress/integration/cadastro.spec.js",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "ad0cb796-21bb-4b6d-8392-0878c6c1d1a2",
+          "uuid": "5b116a70-d621-442f-b170-55a0049050bd",
           "title": "Cadastro",
           "fullFile": "",
           "file": "",
@@ -38,21 +38,17 @@
               "title": "Quando informar os dados e finalizar, então o cadastro deve ser efetuado",
               "fullTitle": "Cadastro Quando informar os dados e finalizar, então o cadastro deve ser efetuado",
               "timedOut": null,
-              "duration": 19975,
-              "state": "failed",
-              "speed": null,
-              "pass": false,
-              "fail": true,
+              "duration": 30104,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
               "pending": false,
               "context": null,
               "code": "cy.intercept({\n  method: 'POST',\n  url: 'https://marketplace-api-develop.tendaatacado.com.br/api/public/client/v2/pre-registration'\n}, {\n  statusCode: 201,\n  fixture: 'cadastro-com-sucesso'\n}).as('preUsers');\ncy.intercept({\n  method: 'PATCH',\n  url: 'https://marketplace-api-develop.tendaatacado.com.br/api/public/client/v2/access-code/'\n}, {\n  statusCode: 200,\n  body: {\n    \"valid\": true\n  }\n}).as('pathUsers');\ncy.visit('/');\ncy.get('button.userPrincipalText').click();\ncy.contains('span', 'Criar conta').click();\ncy.url().should('contain', 'cadastro');\ncy.get('input[value=juridica]').check();\ncy.get('input#nome').type('Frederico Pizzaro');\ncy.get('input[name=cnpj]').clear().type('43256399000189');\ncy.get('input#email').type('fredericopizzaro7@gmail.com');\ncy.get('input[name=cellphone]').clear().type('9999555-5555');\ncy.get('input#password').type('882013Cm@');\ncy.get('input#password2').type('882013Cm@');\ncy.get('input#optIn').check();\ncy.get('div.btn-create-account').click();\ncy.contains('Continuar').should('be.visible');\ncy.get('input#code').type('99O6CE');\ncy.contains('button', 'Continuar').click();\ncy.contains('Cadastro').should('be.visible');",
-              "err": {
-                "message": "Error: The following error originated from your application code, not from Cypress.\n\n  > Script error.\n\nCypress detected that an uncaught error was thrown from a cross origin script.\n\nWe cannot provide you the stack trace, line number, or file where this error occurred.\n\nCheck your Developer Tools Console for the actual error - it should be printed there.\n\nIt's possible to enable debugging these scripts by adding the `crossorigin` attribute and setting a CORS header.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nhttps://on.cypress.io/cross-origin-script-error",
-                "estack": "Error: The following error originated from your application code, not from Cypress.\n\n  > Script error.\n\nCypress detected that an uncaught error was thrown from a cross origin script.\n\nWe cannot provide you the stack trace, line number, or file where this error occurred.\n\nCheck your Developer Tools Console for the actual error - it should be printed there.\n\nIt's possible to enable debugging these scripts by adding the `crossorigin` attribute and setting a CORS header.\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n\nhttps://on.cypress.io/cross-origin-script-error\n",
-                "diff": null
-              },
-              "uuid": "79669b0a-3c50-4f4e-abe5-df299a74a42b",
-              "parentUUID": "ad0cb796-21bb-4b6d-8392-0878c6c1d1a2",
+              "err": {},
+              "uuid": "6064ec09-e9e7-4eaa-bcd4-12105d854af0",
+              "parentUUID": "5b116a70-d621-442f-b170-55a0049050bd",
               "isHook": false,
               "skipped": false
             },
@@ -60,7 +56,7 @@
               "title": "Quando informar os dados com um usuário já existente, então o cadastro não deve ser concluído",
               "fullTitle": "Cadastro Quando informar os dados com um usuário já existente, então o cadastro não deve ser concluído",
               "timedOut": null,
-              "duration": 13532,
+              "duration": 13144,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -69,22 +65,21 @@
               "context": null,
               "code": "cy.intercept({\n  method: 'POST',\n  url: 'https://marketplace-api-develop.tendaatacado.com.br/api/public/client/v2/pre-registration'\n}, {\n  statusCode: 409,\n  fixture: 'cadastro-usuario-existente'\n}).as('preUsers');\ncy.visit('/');\ncy.get('button.userPrincipalText').click();\ncy.contains('span', 'Criar conta').click();\ncy.url().should('contain', 'cadastro');\ncy.get('input[value=juridica]').check();\ncy.get('input#nome').type('Frederico Pizzaro');\ncy.get('input[name=cnpj]').type('43256399000189');\ncy.get('input#email').type('fredericopizzaro7@gmail.com');\ncy.get('input[name=cellphone]').clear().type('9999555-5555');\ncy.get('input#password').type('882013Cm@');\ncy.get('input#password2').type('882013Cm@');\ncy.get('input#optIn').check();\ncy.get('div.btn-create-account').click();\ncy.contains('Recuperar senha').should('be.visible');",
               "err": {},
-              "uuid": "46daee8b-992b-4d8c-9dd4-1cf650fe7e38",
-              "parentUUID": "ad0cb796-21bb-4b6d-8392-0878c6c1d1a2",
+              "uuid": "497ff7d7-15b1-4ea6-9c94-8b48675536c6",
+              "parentUUID": "5b116a70-d621-442f-b170-55a0049050bd",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "46daee8b-992b-4d8c-9dd4-1cf650fe7e38"
+            "6064ec09-e9e7-4eaa-bcd4-12105d854af0",
+            "497ff7d7-15b1-4ea6-9c94-8b48675536c6"
           ],
-          "failures": [
-            "79669b0a-3c50-4f4e-abe5-df299a74a42b"
-          ],
+          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 33507,
+          "duration": 43248,
           "root": false,
           "rootEmpty": false,
           "_timeout": 2000
