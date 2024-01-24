@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2024-01-24T02:52:32.386Z",
+    "end": "2024-01-24T02:53:17.320Z",
+    "duration": 44934,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "afc9fbfb-cd6c-4688-a0d9-b9160c7d5b3e",
+      "title": "",
+      "fullFile": "cypress/integration/cadastro.spec.js",
+      "file": "cypress/integration/cadastro.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9780997b-d839-4e91-9ede-515262e47d5c",
+          "title": "Cadastro",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Quando informar os dados e finalizar, então o cadastro deve ser efetuado",
+              "fullTitle": "Cadastro Quando informar os dados e finalizar, então o cadastro deve ser efetuado",
+              "timedOut": null,
+              "duration": 29786,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept({\n  method: 'POST',\n  url: 'https://marketplace-api-develop.tendaatacado.com.br/api/public/client/v2/pre-registration'\n}, {\n  statusCode: 201,\n  fixture: 'cadastro-com-sucesso'\n}).as('preUsers');\ncy.intercept({\n  method: 'PATCH',\n  url: 'https://marketplace-api-develop.tendaatacado.com.br/api/public/client/v2/access-code/'\n}, {\n  statusCode: 200,\n  body: {\n    \"valid\": true\n  }\n}).as('pathUsers');\ncy.visit('/');\ncy.get('button.userPrincipalText').click();\ncy.contains('span', 'Criar conta').click();\ncy.url().should('contain', 'cadastro');\ncy.get('input[value=juridica]').check();\ncy.get('input#nome').type('Frederico Pizzaro');\ncy.get('input[name=cnpj]').clear().type('43256399000189');\ncy.get('input#email').type('fredericopizzaro7@gmail.com');\ncy.get('input[name=cellphone]').clear().type('9999555-5555');\ncy.get('input#password').type('882013Cm@');\ncy.get('input#password2').type('882013Cm@');\ncy.get('input#optIn').check();\ncy.get('div.btn-create-account').click();\ncy.contains('Continuar').should('be.visible');\ncy.get('input#code').type('99O6CE');\ncy.contains('button', 'Continuar').click();\ncy.contains('Cadastro').should('be.visible');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Cadastro' but never did.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Cadastro' but never did.\n    at Context.eval (https://marketplace-develop.tendaatacado.com.br/__cypress/tests?p=cypress/integration/cadastro.spec.js:2243:29)",
+                "diff": null
+              },
+              "uuid": "959e3dde-2283-4396-b3a8-e9ac3419dee5",
+              "parentUUID": "9780997b-d839-4e91-9ede-515262e47d5c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Quando informar os dados com um usuário já existente, então o cadastro não deve ser concluído",
+              "fullTitle": "Cadastro Quando informar os dados com um usuário já existente, então o cadastro não deve ser concluído",
+              "timedOut": null,
+              "duration": 14917,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.intercept({\n  method: 'POST',\n  url: 'https://marketplace-api-develop.tendaatacado.com.br/api/public/client/v2/pre-registration'\n}, {\n  statusCode: 409,\n  fixture: 'cadastro-usuario-existente'\n}).as('preUsers');\ncy.visit('/');\ncy.get('button.userPrincipalText').click();\ncy.contains('span', 'Criar conta').click();\ncy.url().should('contain', 'cadastro');\ncy.get('input[value=juridica]').check();\ncy.get('input#nome').type('Frederico Pizzaro');\ncy.get('input[name=cnpj]').type('43256399000189');\ncy.get('input#email').type('fredericopizzaro7@gmail.com');\ncy.get('input[name=cellphone]').clear().type('9999555-5555');\ncy.get('input#password').type('882013Cm@');\ncy.get('input#password2').type('882013Cm@');\ncy.get('input#optIn').check();\ncy.get('div.btn-create-account').click();\ncy.contains('Recuperar senha').should('be.visible');",
+              "err": {},
+              "uuid": "93a8659e-2a96-4fa4-baec-f16ebb62eaef",
+              "parentUUID": "9780997b-d839-4e91-9ede-515262e47d5c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "93a8659e-2a96-4fa4-baec-f16ebb62eaef"
+          ],
+          "failures": [
+            "959e3dde-2283-4396-b3a8-e9ac3419dee5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 44703,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": true,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "mochawesome-report",
+        "quiet": true,
+        "overwrite": false,
+        "hmtl": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
