@@ -1,0 +1,23 @@
+{
+    "email": "fredericopizzaro7@gmail.com",
+    "name": "Frederico Pizzaro",
+    "nickname": "Frederico",
+    "cellphoneAreaCode": "99",
+    "cellphone": "995555555",
+    "birthdate": "",
+    "registryType": "juridica",
+    "company": {
+    "exemptOfRegistration": false,
+    "cnpj": "43256399000189"
+    },
+    "addresses": [],
+    "changeOrigin": "ECOMMERCE",
+    "active": true,
+    "removed": false,
+    "login": "fredericopizzaro7@gmail.com",
+    "anonymous": false,
+    "incompleteRegistration": true,
+    "accessCodeValidated": false,
+    "sendRedeMagic": false,
+    "preClientId": "612"
+ } 
